@@ -1,3 +1,4 @@
+import { Button, Checkbox, Flex } from "@chakra-ui/react";
 import React from "react";
 import { useState } from "react";
 import { EditTodo } from "./EditTodo";
@@ -16,6 +17,8 @@ export function Todo({
     setIsEditing(!isEditing);
   };
 
+  console.log("isediting", isEditing);
+
   return (
     <div>
       {isEditing ? (
@@ -26,22 +29,31 @@ export function Todo({
           changeIsEditing={toggleEditing}
         />
       ) : (
-        <div>
-          <input
-            type="checkbox"
-            defaultChecked={completed}
+        <Flex alignItems="center" ml="24px" gap="12px">
+          <Checkbox
             onClick={() => toggleCompleted(id)}
-          />
-          <span>{task}</span>
-          <button
+            colorScheme="orange"
+            size="lg"
+          >
+            {task}
+          </Checkbox>
+          <Button
             onClick={() => {
               removeTodo(id);
             }}
+            colorScheme="red"
+            variant="ghost"
           >
             Delete
-          </button>
-          <button onClick={toggleEditing}>Edit</button>
-        </div>
+          </Button>
+          <Button
+            onClick={toggleEditing}
+            colorScheme="whatsapp"
+            variant="ghost"
+          >
+            Edit
+          </Button>
+        </Flex>
       )}
     </div>
   );

@@ -1,3 +1,4 @@
+import { Input } from "@chakra-ui/react";
 import React from "react";
 import { useState } from "react";
 
@@ -19,7 +20,15 @@ export function TodoForm({ addTodo }) {
         reset();
       }}
     >
-      <input type="text" value={value} onChange={handleChange} />
+      <Input
+        type="text"
+        value={value}
+        onChange={handleChange}
+        placeholder="Your Todo"
+        variant="outline"
+        bgColor="white"
+        focusBorderColor="red.300"
+      />
     </form>
   );
 }

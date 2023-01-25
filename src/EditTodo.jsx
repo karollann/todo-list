@@ -1,3 +1,4 @@
+import { Input } from "@chakra-ui/react";
 import React from "react";
 import { useState } from "react";
 
@@ -14,9 +15,10 @@ export function EditTodo({ id, task, editTodo, changeIsEditing }) {
         e.preventDefault();
         editTodo(id, value);
         changeIsEditing();
+        console.log("change is Editing");
       }}
     >
-      <input type="text" value={value} onChange={handleChange} />
+      <Input type="text" value={value} onChange={handleChange} ml="24px" />
     </form>
   );
 }
